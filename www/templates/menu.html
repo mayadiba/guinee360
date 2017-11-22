@@ -1,0 +1,115 @@
+<link href="css/menu.css" rel="stylesheet" type="text/css" />
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="header">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="{{menuDirection}}">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="{{menuDirection}}"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="{{menuDirection}}" class="menu menu-{{menuDirection}}">
+    <ion-header-bar class="header row-center">
+		<button class="back-button bar-button ion-android-arrow-back" menu-toggle="{{menuDirection}}"></button>
+		<h1 class="title" style='color:#055A90'><span class="logo">Menu</span></h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+		<ion-scroll class="height-100">
+		  <ul class="list menu-list">
+			<a menu-close class="item item-icon-{{menuDirection}}" ui-sref="app.home" ng-class="{'selected':now=='home'}">
+				<i class="icon icon-home" style='color:#055A90'></i> {{'Home' | translate}}
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(7)" ng-class="{'selected':now==7}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/text-document.png" />
+				</i> <span>A LA UNE</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(721)" ng-class="{'selected':now==721}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/africa-map.png" />
+				</i> <span>Afrique</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(13)" ng-class="{'selected':now==13}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/mask.png" />
+				</i> <span>Chroniques</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(5)" ng-class="{'selected':now==5}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/business-and-economic-faculty.png" />
+				</i> <span>Economie</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(8)" ng-class="{'selected':now==8}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/earth.png" />
+				</i> <span>Monde</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(4)" ng-class="{'selected':now==4}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/elections.png" />
+				</i> <span>Politique</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(2993)" ng-class="{'selected':now==2993}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/mask.png" />
+				</i> <span>Regions</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(12)" ng-class="{'selected':now==12}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/team.png" />
+				</i> <span>Societé</span>
+			</a>
+			<a class="item item-icon-{{menuDirection}}" ng-click="openCategory(6)" ng-class="{'selected':now==6}">
+				<i class="icon">
+					<img  class="margin-auto" src="img/Icones/trophy.png" />
+				</i> <span>Sport</span>
+			</a>
+			<a menu-close class="item item-icon-{{menuDirection}}" ui-sref="app.forgot" ng-class="{'selected':now=='forgot'}">
+				<i class="icon icon-eye" style='color:#055A90'></i> {{'Œil du citoyen' | translate}}
+			</a>
+
+			
+			<!--<a class="item item-icon-{{menuDirection}}" ng-repeat="item in categoryParent" ng-click="openCategory(item.id)" ng-class="{'selected':now==item.id}"  ng-if="item.name!=='Flash360'">
+				<i class="icon">
+					<img ng-if="item.name=='Afrique'" class="margin-auto" src="img/Icones/africa-map.png" />
+					<img ng-if="item.name=='A LA UNE'" class="margin-auto" src="img/Icones/text-document.png" />
+					<img ng-if="item.name=='Chroniques'" class="margin-auto" src="img/Icones/mask.png" />
+					<img ng-if="item.name=='Economie'" class="margin-auto" src="img/Icones/business-and-economic-faculty.png" />
+					<img ng-if="item.name=='Monde'" class="margin-auto" src="img/Icones/earth.png" />
+					<img ng-if="item.name=='Politique'" class="margin-auto" src="img/Icones/elections.png" />
+					<img ng-if="item.name=='Regions'" class="margin-auto" src="img/Icones/mask.png" />
+					<img ng-if="item.name=='Societé'" class="margin-auto" src="img/Icones/team.png" />
+					<img ng-if="item.name=='Sport'" class="margin-auto" src="img/Icones/trophy.png" />
+
+
+
+
+				</i> <span ng-bind-html="item.name"></span>
+			</a>-->
+
+
+			<!--<a menu-close class="item item-icon-{{menuDirection}}" ui-sref="app.photo" ng-class="{'selected':now=='photo'}">
+				<i class="icon">
+					<img  class="margin-auto" src="../img/Icones/photo-camera.png" />
+
+				</i>
+				 {{'photos' | translate}}
+			</a>
+			<a menu-close class="item item-icon-{{menuDirection}}" ui-sref="app.video" ng-class="{'selected':now=='video'}">
+				<i class="icon icon-video" style='color:#055A90'></i> {{'videos' | translate}}
+			</a>-->
+		  </ul>
+		 </ion-scroll>
+		 <ul class="list menu-child" ng-show="categoryNowChild.length >0">
+		  <ion-scroll class="height-100">
+			<a class="item" ng-repeat="item in categoryNowChild" ng-click="openCategory(item.id,true)">
+				<span ng-bind-html="item.name"></span>
+			</a>		
+		  </ion-scroll>
+		 </ul>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
